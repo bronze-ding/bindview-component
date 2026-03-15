@@ -16,20 +16,24 @@ export default function Dialog(props, slot) {
 
   return {
     name: "Dialog",
-    render() {
+    render(h) {
       const { methods: f } = this
-      return (
-        <div className={s.dialog} ref="dialog">
-          <div className={s.title}>{title ? title : "对话框"}</div>
-          <div className={s.content}>
-            <div className={s.contentBox}>{slot()}</div>
-          </div>
-          <div className={s.bottom}>
-            <span className={s.but}>
-              <button onClick={f.close}>关闭</button>&nbsp;<button onClick={func}>确认</button>
-            </span>
-          </div>
-        </div>
+      return h(
+        "div",
+        { className: s.dialog, ref: "dialog" },
+        [
+          h("div", { className: s.title }, [title ? title : "对话框"]),
+          h("div", { className: s.content }, [
+            h("div", { className: s.contentBox }, [slot()])
+          ]),
+          h("div", { className: s.bottom }, [
+            h("span", { className: s.but }, [
+              h("button", { onClick: f.close }, ["关闭"]),
+              "\u00A0",
+              h("button", { onClick: func }, ["确认"])
+            ])
+          ])
+        ]
       )
     },
     methods: {

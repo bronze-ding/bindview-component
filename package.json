@@ -1,14 +1,21 @@
 {
   "name": "bindview-component",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "./src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bronze-ding/bindview-component.git"
+  },
+  "keywords": [
+    "bindview",
+    "bindview-component"
+  ],
+  "author": "canlie",
+  "license": "MIT",
+  "description": "适用于 bindview@3 的组件库",
   "dependencies": {
     "bindview": "^3.0.7"
   }

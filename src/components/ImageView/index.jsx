@@ -15,38 +15,43 @@ function View(props) {
 
   return {
     name: 'ImageView',
-    render() {
+    render(h) {
       const { data: _ } = this;
       // 判断src类型，获取当前图片
       let imgSrc = Array.isArray(src) ? src[_.index] : src;
-      return (
-        <div className={s.imageView}>
-          <div className={s.left}>
-            <span
-              className={`${s.up} iconfont icon-xiangqian`}
-              onClick={() => {
+      return h(
+        "div",
+        { className: s.imageView },
+        [
+          h("div", { className: s.left }, [
+            h("span", {
+              className: `${s.up} iconfont icon-xiangqian`,
+              onClick: () => {
                 if (Array.isArray(src) && _.index > 0) {
                   _.index = _.index - 1
                 }
-              }}
-            ></span>
-          </div>
-          <div className={s.center}>
-            <img src={imgSrc} />
-            <span className={`${s.pag}`} >{_.index + 1}/{src.length}</span>
-          </div>
-          <div className={s.right}>
-            <span
-              className={`${s.down} iconfont icon-xianghou`}
-              onClick={() => {
+              }
+            }, [])
+          ]),
+          h("div", { className: s.center }, [
+            h("img", { src: imgSrc }, []),
+            h("span", { className: `${s.pag}` }, [`${_.index + 1}/${src.length}`])
+          ]),
+          h("div", { className: s.right }, [
+            h("span", {
+              className: `${s.down} iconfont icon-xianghou`,
+              onClick: () => {
                 if (Array.isArray(src) && _.index < src.length - 1) {
                   _.index = _.index + 1
                 }
-              }}
-            ></span>
-            <span className={`${s.close} iconfont icon-shanchu`} onClick={func}></span>
-          </div>
-        </div>
+              }
+            }, []),
+            h("span", {
+              className: `${s.close} iconfont icon-shanchu`,
+              onClick: func
+            }, [])
+          ])
+        ]
       );
     },
     data: () => ({

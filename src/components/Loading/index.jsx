@@ -7,12 +7,14 @@ import React from "../../React"
 export default function Loading() {
   return {
     name: 'BvLoading',
-    render() {
-      return (
-        <div class={s['box']}>
-          <div class={s['Masking']}></div>
-          <div class={s["loading"]}></div>
-        </div>
+    render(h) {
+      return h(
+        "div",
+        { class: s['box'] },
+        [
+          h("div", { class: s['Masking'] }, []),
+          h("div", { class: s["loading"] }, [])
+        ]
       )
     }
   }
