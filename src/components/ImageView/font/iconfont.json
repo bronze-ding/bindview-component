@@ -1,0 +1,30 @@
+{
+  "id": "5139297",
+  "name": "tupian",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "47042993",
+      "name": "删除",
+      "font_class": "shanchu",
+      "unicode": "10225",
+      "unicode_decimal": 66085
+    },
+    {
+      "icon_id": "47042994",
+      "name": "向后",
+      "font_class": "xianghou",
+      "unicode": "10226",
+      "unicode_decimal": 66086
+    },
+    {
+      "icon_id": "47043001",
+      "name": "向前",
+      "font_class": "xiangqian",
+      "unicode": "10227",
+      "unicode_decimal": 66087
+    }
+  ]
+}

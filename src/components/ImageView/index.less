@@ -1,0 +1,123 @@
+@import url("./font/iconfont.css");
+
+.view {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10000;
+}
+
+.imageView {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.imageView {
+  flex-direction: row;
+  justify-content: center;
+  height: 100%;
+  background-color: rgb(209 209 209 / 63%);
+}
+
+.left,
+.right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+}
+
+.center {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 100vh
+}
+
+.center img {
+  max-width: 100%;
+  max-height: 90vh;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.pag {
+  position: absolute;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.45);
+  color: #fff;
+  font-size: 16px;
+  padding: 6px 18px;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  letter-spacing: 2px;
+  user-select: none;
+  pointer-events: none;
+}
+
+
+.iconfont {
+  font-size: 28px;
+  cursor: pointer;
+  margin: 12px 0;
+  color: #888;
+  transition: color 0.2s, background 0.2s, transform 0.2s;
+  padding: 8px;
+  border-radius: 50%;
+  background: transparent;
+  box-shadow: none;
+
+  .up,
+  .down {
+    background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+    color: #1976d2;
+    box-shadow: 0 2px 8px rgba(25, 118, 210, 0.12);
+    border: 1px solid #90caf9;
+  }
+
+  .up:hover,
+  .down:hover {
+    background: linear-gradient(135deg, #1976d2 0%, #90caf9 100%);
+    color: #fff;
+    border: 1px solid #1976d2;
+    box-shadow: 0 4px 16px rgba(25, 118, 210, 0.18);
+    transform: scale(1.18);
+  }
+}
+
+
+.iconfont:hover {
+  color: #1976d2;
+  background: rgba(25, 118, 210, 0.08);
+  transform: scale(1.15);
+  box-shadow: 0 2px 8px rgba(25, 118, 210, 0.12);
+}
+
+.close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  color: #e74c3c;
+  font-size: 28px;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 50%;
+  padding: 8px;
+  box-shadow: 0 2px 8px rgba(231, 76, 60, 0.12);
+  transition: color 0.2s, background 0.2s, transform 0.2s;
+}
+
+.close:hover {
+  color: #c0392b;
+  background: rgba(231, 76, 60, 0.08);
+  transform: scale(1.15);
+}
