@@ -17,7 +17,10 @@ function View(props) {
     name: 'ImageView',
     render(h) {
       const { data: _ } = this;
-      // 判断src类型，获取当前图片
+      // 修正index边界
+      let maxIndex = Array.isArray(src) ? src.length - 1 : 0;
+      if (_.index < 0) _.index = 0;
+      if (_.index > maxIndex) _.index = maxIndex;
       let imgSrc = Array.isArray(src) ? src[_.index] : src;
       return h(
         "div",
@@ -27,22 +30,26 @@ function View(props) {
             h("span", {
               className: `${s.up} iconfont icon-xiangqian`,
               onClick: () => {
-                if (Array.isArray(src) && _.index > 0) {
-                  _.index = _.index - 1
+                if (Array.isArray(src) && src.length > 1) {
+                  _.index = Math.max(_.index - 1, 0);
                 }
               }
             }, [])
           ]),
           h("div", { className: s.center }, [
             h("img", { src: imgSrc }, []),
-            h("span", { className: `${s.pag}` }, [`${_.index + 1}/${src.length}`])
+            h("span", { className: `${s.pag}` }, [
+              Array.isArray(src)
+                ? `${_.index + 1}/${src.length}`
+                : `1/1`
+            ])
           ]),
           h("div", { className: s.right }, [
             h("span", {
               className: `${s.down} iconfont icon-xianghou`,
               onClick: () => {
-                if (Array.isArray(src) && _.index < src.length - 1) {
-                  _.index = _.index + 1
+                if (Array.isArray(src) && src.length > 1) {
+                  _.index = Math.min(_.index + 1, src.length - 1);
                 }
               }
             }, []),
@@ -75,4 +82,3 @@ export default function ImageView(src, ind) {
     }
   }).$mount(box)
 }
-
